@@ -34,8 +34,40 @@ fi
 ## Looping
 `**While**` loop 
 ```bash
-while <list>
+n=0
+while [[ n -le 10 ]]
 do
-    <list>
+    echo $n
+    n=$(( $n + 1 ))
 done
+```
+
+# For loop
+
+Works like a `for each`
+
+```bash
+# Do something ten times
+for num in {1..10} 
+do 
+    <ITEM>
+done
+```
+# Command Line Arguments
+`$@` holds all the arguments passed in
+
+```bash
+
+# Display command line arguments
+pre=:
+post=:
+
+# $@ array of all command line argumnet s not including $0
+for arg in $@
+do
+    printf "$pre%s$post\n" "$arg"
+done
+
+# Equevalent
+printf "$pre%s$post\n" "$@"
 ```
